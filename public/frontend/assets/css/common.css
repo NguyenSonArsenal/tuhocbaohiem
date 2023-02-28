@@ -1,0 +1,123 @@
+.menu__component-mobile .menu__search {
+    color: white;
+    background: none;
+    height: 0px;
+    margin-top: 15px;
+}
+
+.menu__component .menu__search {
+    line-height: 40px;
+    color: white;
+    max-width: 100%;
+    background: none;
+}
+
+.menu__component .menu__search > marquee {
+    height: 100%;
+}
+
+.brcrumb__list {
+    padding: 10px 0 15px 0;
+}
+
+.brcrumb__info-title {
+    font-size: 25px;
+    line-height: 37px;
+    font-weight: 500;
+    color: #fff;
+    margin-bottom: 4px;
+}
+
+.brcrumb {
+    background-color: rgba(212,178,107,.7);
+}
+
+.termsofuse__breadcrum {
+    margin-bottom: 28px;
+}
+
+.menu__component .menu__category {
+    position: relative;
+    width: 264px;
+    height: 100%;
+    padding: 15px 20px;
+    transition: .3s ease;
+    margin-right: 30px;
+    font-size: 16px;
+    color: #fff;
+    font-weight: 400;
+    cursor: pointer;
+    background: #d1ae66;
+}
+
+.menu-topic {
+    margin: 0 0 24px 0;
+}
+
+.termsofuse {
+    margin-bottom: 36px;
+}
+
+.termsofuse .termsofuse__details {
+    background-color: #fff;
+    border-radius: 5px;
+    color: #02010e;
+    padding: 32px 44px;
+}
+
+/** Pagination  */
+
+.component__pagination {
+    font-family: Inter,sans-serif;
+    padding: 0 0 0;
+    height: 39px;
+    margin-bottom: 24px;
+}
+
+.component__pagination .pagination {
+    text-align: center;
+    float: right;
+}
+
+.component__pagination ul {
+    display: flex;
+}
+
+.component__pagination ul li:first-child {
+    margin-left: 0;
+}
+
+.component__pagination ul li.active {
+    background-color: #d4b26b;
+}
+
+.component__pagination ul li {
+    display: inline-block;
+    margin-left: 8px;
+    height: 39px;
+    min-width: 36px;
+    background: #fff;
+    border-radius: 3px;
+    padding: 0 5px;
+}
+
+.component__pagination ul li a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    font-size: 18px;
+    line-height: 21px;
+    font-weight: 400;
+    padding: 0;
+}
+.component__pagination ul li.active a {
+    color: #fff;
+}
+
+.component__pagination ul li:hover {
+    background-color: #d4b26b;
+    transition: .2s;
+}
+/** End Pagination  */

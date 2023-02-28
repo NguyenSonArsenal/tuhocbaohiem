@@ -1,0 +1,40 @@
+.menu__component .menu__search {
+    line-height: 40px;
+    color: white;
+    max-width: 100%;
+    background: none;
+}
+
+.menu__component .menu__search > marquee {
+    height: 100%;
+}
+
+.partner__wrap .partner__list .partner__list-link {
+    color: #d4b26b;
+}
+
+.partner__wrap .partner__list .partner__list-link .link__thumb {
+    background: white;
+}
+
+.partner__wrap .partner__list {
+    max-width: none;
+}
+
+@media only screen and (max-width: 1199px) {
+    .partner__wrap .partner__list {
+        border-spacing: 10px;
+        overflow: hidden;
+    }
+}
+
+.ptservice__main-box {
+    min-height: auto;
+}
+.menu__component-mobile .menu__search {
+    color: white;
+    background: none;
+    height: 0px;
+    margin-top: 15px;
+}
+
