@@ -33,9 +33,6 @@
                                 <div class="col-md-2">
                                     <input type="text" name="name_email" class="form-control" placeholder="Họ tên, email" value="{{ request('name_email') }}">
                                 </div>
-                                <div class="col-md-2">
-{{--                                    @include('layouts.backend.structures.elements._form_search_status')--}}
-                                </div>
                             </div>
 
                             <div class="card-body__head card-body__filter text-center">
@@ -45,7 +42,7 @@
 
                         <div class="card-body__head d-flex">
                             <h5 class="card-title">Danh sách giảng viên</h5>
-                            <a href="">
+                            <a href="{{ beRoute('teacher.create') }}">
                                 <button type="button" class="btn btn-cyan btn-sm">Thêm mới</button>
                             </a>
                         </div>
@@ -57,13 +54,8 @@
                                     <th scope="col">STT</th>
                                     <th scope="col">Họ và tên</th>
                                     <th scope="col">Ảnh đại diện</th>
-                                    <th scope="col">Nơi công tác</th>
-                                    <th scope="col">Môn dạy</th>
-                                    <th scope="col">Học vị</th>
                                     <th scope="col">Email</th>
-                                    <th scope="col">Facebook</th>
-                                    <th scope="col" width="175px">Mô tả ngắn</th>
-                                    <th scope="col">Trạng thái</th>
+                                    <th scope="col">SĐT</th>
                                     <th scope="col">Hành động</th>
                                 </tr>
                                 </thead>
@@ -86,21 +78,18 @@
                                         <td>{{ $entity->email }}</td>
                                         <td>{{ $entity->phone }}</td>
                                         <td>
-{{--                                            @include('layouts.backend.structures.elements._status')--}}
-                                        </td>
-                                        <td>
-                                            <div class="comment-footer">
-                                                <a href="">
-                                                    <button type="button" class="btn btn-cyan btn-xs">Sửa</button>
-                                                </a>
-                                                <a href="#modal_confirm_delete"
-                                                   class="btn-danger btn btn-xs modal_confirm_delete rounded"
-                                                   data-toggle="modal"
-                                                   data-form-action="{{ route('be.teacher.destroy', ['teacher' => $entity->id]) }}"
-                                                >
-                                                    Xóa
-                                                </a>
-                                            </div>
+{{--                                            <div class="comment-footer">--}}
+{{--                                                <a href="">--}}
+{{--                                                    <button type="button" class="btn btn-cyan btn-xs">Sửa</button>--}}
+{{--                                                </a>--}}
+{{--                                                <a href="#modal_confirm_delete"--}}
+{{--                                                   class="btn-danger btn btn-xs modal_confirm_delete rounded"--}}
+{{--                                                   data-toggle="modal"--}}
+{{--                                                   data-form-action="{{ route('be.teacher.destroy', ['teacher' => $entity->id]) }}"--}}
+{{--                                                >--}}
+{{--                                                    Xóa--}}
+{{--                                                </a>--}}
+{{--                                            </div>--}}
                                         </td>
                                     </tr>
                                 @endforeach

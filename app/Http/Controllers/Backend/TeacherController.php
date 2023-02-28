@@ -21,11 +21,22 @@ class TeacherController extends Controller
 
     public function create()
     {
-        return view('backend.user.create');
+        return view('backend.teacher.create');
     }
 
     public function store()
     {
+        try {
+            $params = request()->all();
+            $teacher = new Teacher();
+            $teacher->fill($params);
+            $teacher->save();
+
+            return backRouteSuccess('be.teacher.index', 'Thêm mới thành công');
+        } catch (\Exception $e) {
+        }
+        return backRouteError('be.teacher.index', 'Đã có lỗi sảy ra');
+
 
     }
 
