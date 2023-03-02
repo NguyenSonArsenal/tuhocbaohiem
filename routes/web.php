@@ -44,30 +44,6 @@ Route::group(['prefix'=>'management/', 'as'=>'be.', 'namespace' => 'Backend'], f
             Route::delete('/{id}', [UserController::class, 'destroy'])->name('destroy');
         });
 
-        Route::group(['prefix' => 'user/', 'as' => 'user.'], function () {
-            Route::get('/', [UserController::class, 'index'])->name('index');
-            Route::get('/create', [UserController::class, 'create'])->name('create');
-            Route::post('/store', [UserController::class, 'store'])->name('store');
-            Route::get('/edit/{id}', [UserController::class, 'edit'])->name('edit');
-            Route::post('/update', [UserController::class, 'update'])->name('update');
-            Route::delete('/{id}', [UserController::class, 'destroy'])->name('destroy');
-        });
-
         Route::resource('teacher', '\App\Http\Controllers\Backend\TeacherController');
-
-//        Route::group(['prefix'=>'teacher/', 'as'=>'teachers.'], function(){
-//
-//            Route::get('/', ['as' => 'list', 'uses' => 'Backend\TeacherController@index']);
-//
-//            Route::get('/create', ['as' => 'create', 'uses' => 'Backend\TeacherController@create']);
-//
-//            Route::post('/', ['as' => 'store', 'uses' => 'Backend\TeacherController@store']);
-//
-//            Route::get('/{id}/edit', ['as' => 'edit', 'uses' => 'Backend\TeacherController@edit']);
-//
-//            Route::post('/{id}', ['as' => 'update', 'uses' => 'Backend\TeacherController@update']);
-//
-//            Route::delete('/{id}', ['as' => 'destroy', 'uses' => 'Backend\TeacherController@destroy']);
-//        });
     });
 });

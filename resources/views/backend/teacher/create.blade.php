@@ -5,7 +5,21 @@
 @endpush
 
 @push('script')
-    <script src="/admin-assets/dist/js/pages/teacher.js"></script>
+    <script>
+        $('#upload').change(function () {
+            var input = this;
+            var url = $(this).val();
+            var ext = url.substring(url.lastIndexOf('.') + 1).toLowerCase();
+            if (input.files && input.files[0] && (ext == "gif" || ext == "png" || ext == "jpeg" || ext == "jpg")) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#previewAvatar').attr('src', e.target.result);
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        });
+    </script>
 @endpush
 
 @section('content')
@@ -35,8 +49,6 @@
                             <div class="card">
                                 <form class="form-horizontal" action="{{beRoute('teacher.store')}}" method="post" enctype="multipart/form-data">
                                     @csrf
-
-
                                     @if ($errors->any())
                                         <div class="error alert alert-danger">
                                             <ul>
@@ -69,19 +81,19 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
+                                                    <label for="cono1" class="col-sm-3 text-right control-label col-form-label">Ảnh đại diện</label>
+                                                    <div class="col-sm-8">
+                                                        <input type="file" class="form-control" name="avatar" id="upload">
+                                                        <img id="previewAvatar" src="" alt="" width="150px">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
                                                     <label for="cono1" class="col-sm-3 text-right control-label col-form-label">Mô tả ngắn</label>
                                                     <div class="col-sm-8">
-                                                        <textarea  type="text" class="form-control" maxlength="255" rows="5" name="{{ old('description') }}"
+                                                        <textarea  type="text" class="form-control" maxlength="255" rows="5" name="description"
                                                                    placeholder="Nhập mô tả ngắn về giảng viên">{{ old('description') }}</textarea>
                                                     </div>
                                                 </div>
-
-{{--                                                <div class="form-group row">--}}
-{{--                                                    <label for="cono1" class="col-sm-3 text-right control-label col-form-label">Ảnh đại diện</label>--}}
-{{--                                                    <div class="col-sm-8">--}}
-{{--                                                        <input type="file" class="form-control" name="avatar">--}}
-{{--                                                    </div>--}}
-{{--                                                </div>--}}
                                             </div>
                                         </div>
                                     </div>

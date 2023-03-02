@@ -67,7 +67,7 @@
                                         <td>
                                             @if($entity->avatar)
                                                 <a href="javascript:void(0)">
-                                                    <img width="50px" src="{{ $entity->avatar }}" alt="Image name">
+                                                    <img width="50px" src="{{ asset($entity->avatar) }}" alt="Image name">
                                                 </a>
                                             @else
                                                 <a href="javascript:void(0)">
@@ -78,18 +78,18 @@
                                         <td>{{ $entity->email }}</td>
                                         <td>{{ $entity->phone }}</td>
                                         <td>
-{{--                                            <div class="comment-footer">--}}
-{{--                                                <a href="">--}}
-{{--                                                    <button type="button" class="btn btn-cyan btn-xs">Sửa</button>--}}
-{{--                                                </a>--}}
-{{--                                                <a href="#modal_confirm_delete"--}}
-{{--                                                   class="btn-danger btn btn-xs modal_confirm_delete rounded"--}}
-{{--                                                   data-toggle="modal"--}}
-{{--                                                   data-form-action="{{ route('be.teacher.destroy', ['teacher' => $entity->id]) }}"--}}
-{{--                                                >--}}
-{{--                                                    Xóa--}}
-{{--                                                </a>--}}
-{{--                                            </div>--}}
+                                            <div class="comment-footer d-flex">
+                                                <a href="{{ route('be.teacher.edit', ['teacher' => $entity->id]) }}" class="btn btn-cyan btn-xs">Sửa</a>
+                                                <form action="{{ route('be.teacher.destroy', ['teacher' => $entity->id]) }}"
+                                                      method="POST" class="form_confirm_delete">
+                                                    @csrf
+                                                    @method('DELETE')
+
+                                                    <button type="submit" onclick="return confirm('Are you sure?')"
+                                                       class="btn-danger btn btn-xs modal_confirm_delete rounded"
+                                                    >Xóa</button>
+                                                </form>
+                                            </div>
                                         </td>
                                     </tr>
                                 @endforeach

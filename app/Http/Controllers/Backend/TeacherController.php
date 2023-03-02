@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Backend\TeacherRequest;
+use App\Models\Category;
+use App\Models\Product;
 use App\Models\Teacher;
 use App\Models\User;
 
@@ -24,10 +27,25 @@ class TeacherController extends Controller
         return view('backend.teacher.create');
     }
 
-    public function store()
+    public function store(TeacherRequest $request)
     {
         try {
             $params = request()->all();
+
+            if (request()->hasFile('avatar')) {
+                $fileName = time() . "_" . request()->file('avatar')->getClientOriginalName();
+                $pathTmp = 'backend/upload/teacher';
+                $uploadPath = public_path($pathTmp); // Folder upload path
+
+                if (!file_exists($uploadPath)) {
+                    mkdir($uploadPath, 0777, true);
+                }
+
+                request()->file('avatar')->move($uploadPath, $fileName);
+                $thumbnail = $pathTmp . '/' . $fileName;
+                $params['avatar'] = $thumbnail;
+            }
+
             $teacher = new Teacher();
             $teacher->fill($params);
             $teacher->save();
@@ -42,18 +60,41 @@ class TeacherController extends Controller
 
     public function edit($id)
     {
-
+        $data = Teacher::findOrFail($id);
+        return view('backend.teacher.edit', compact('data'));
     }
 
-    public function update($id)
+    public function update($id, TeacherRequest $request)
     {
+        try {
+            $data = Teacher::findOrFail($id);
+            $params = request()->all();
 
+            if (request()->hasFile('avatar')) {
+                $fileName = time() . "_" . request()->file('avatar')->getClientOriginalName();
+                $pathTmp = 'backend/upload/teacher';
+                $uploadPath = public_path($pathTmp); // Folder upload path
+
+                if (!file_exists($uploadPath)) {
+                    mkdir($uploadPath, 0777, true);
+                }
+
+                request()->file('avatar')->move($uploadPath, $fileName);
+                $thumbnail = $pathTmp . '/' . $fileName;
+                $params['avatar'] = $thumbnail;
+            }
+            $data->fill($params);
+            $data->save();
+            return redirect()->route('be.teacher.index')->with('notification_success', trans('messages.success'));
+        } catch (\Exception $e) {
+            return redirect()->route('be.teacher.index')->with('notification_success', trans('messages.system_error'));
+        }
     }
 
     public function destroy($id)
     {
         try {
-            User::destroy($id);
+            Teacher::destroy($id);
             return redirect()->back()->with('notification_success', trans('messages.success'));
         } catch (\Exception $e) {
             return redirect()->back()->with('notification_error', trans('messages.system_error'));

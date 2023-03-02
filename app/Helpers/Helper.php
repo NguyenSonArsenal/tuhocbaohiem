@@ -97,4 +97,7 @@ function getSiteName()
     return getConfig('system.SITE_NAME', 'Laravel');
 }
 
-
+function oldInput($old, $db)
+{
+    return empty($old) ? $db : $old;
+}

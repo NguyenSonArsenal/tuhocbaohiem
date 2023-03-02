@@ -35,11 +35,17 @@
                                                 </h1>
                                                 <h6><a class="text-white" href="#">Danh
                                                         sách người dùng</a></h6>
-                                                <h6 class="text-white">
-                                                    <small>Hoạt động: 100</small>
-                                                    <br>
-                                                    <small>Tạm khóa: 100</small>
-                                                </h6>
+                                                <h6 class="text-white">100</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-2 col-xlg-3">
+                                        <div class="card card-hover">
+                                            <div class="box bg-cyan text-center">
+                                                <h1 class="font-light text-white"><i class="mdi mdi-view-dashboard"></i>
+                                                </h1>
+                                                <h6><a class="text-white" href="#">Danh sách giáo viên</a></h6>
+                                                <h6 class="text-white">{{ \App\Models\Teacher::count() }}</h6>
                                             </div>
                                         </div>
                                     </div>
