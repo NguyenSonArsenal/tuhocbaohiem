@@ -16,12 +16,13 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//
+//Route::get('/', function () {
+//    dd('Tu hoc bao hiem');
+//});
 
-Route::get('/', function () {
-    dd('Tu hoc bao hiem');
-});
-
-Route::group(['prefix'=>'/', 'as'=>'fe.'], function(){
+Route::group(['as'=>'fe.'], function(){
+    Route::get('/', [\App\Http\Controllers\Frontend\HomeController::class, 'lienhe'])->name('lienhe');
 });
 
 
