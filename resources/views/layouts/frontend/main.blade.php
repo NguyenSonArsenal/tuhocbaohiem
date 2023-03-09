@@ -50,7 +50,7 @@
                                        </a>
                                         <a href="" class="btn btn-default sign ">Logout</a>
                                     @else
-                                        <a href="" class="btn btn-default sign ">Đăng nhập</a>
+                                        <a href="{{ feRoute('login') }}" class="btn btn-default sign ">Đăng nhập</a>
                                     @endauth
                                 </div>
                             </div>
@@ -67,7 +67,7 @@
                     <div class="col-md-12">
                     <nav class="navbar navbar-expand-md navbar-light">
 
-                    <a class="navbar-brand" href="{{ url('/') }}" target="_blank">
+                    <a class="navbar-brand" href="{{ feRoute('home') }}">
                         <img src="{{ asset('frontend/assets/images/home/logo.png') }}" alt=""></a>
 
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -76,23 +76,20 @@
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ml-auto py-4 py-md-0">
-                        <li @if(request()->is('/')) class="active" @endif >
-                                        <a class="nav-link" href="{{ url('/') }}">Trang chủ</a>
-                                    </li>
-                            <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-                                <a class="nav-link" href="{{ url('/about-us') }}" role="button" aria-haspopup="true" aria-expanded="false">Giới thiệu</a>
+                            <li @if(request()->is('/')) class="active" @endif >
+                                <a class="nav-link" href="{{ url('/') }}">Trang chủ</a>
                             </li>
                             <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-                                <a class="nav-link" href="{{ url('/courses') }}">Khóa học</a>
+                                <a class="nav-link" href="#" role="button" aria-haspopup="true" aria-expanded="false">Giới thiệu</a>
                             </li>
                             <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-                                <a class="nav-link "  href="{{ url('/calendar') }}" role="button" aria-haspopup="true" aria-expanded="false">Lịch thi</a>
+                                <a class="nav-link" href="#">Khóa học</a>
                             </li>
                             <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-                                <a class="nav-link" href="{{ url('/teacher') }}">Giảng viên</a>
+                                <a class="nav-link"  href="{{ feRoute('teacher') }}">Giảng viên</a>
                             </li>
                             <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-                                <a class="nav-link" href="{{ url('/contact') }}">Trợ giúp</a>
+                                <a class="nav-link" href="{{ feRoute('contact') }}">Liên hệ</a>
                             </li>
                         </ul>
                     </div>

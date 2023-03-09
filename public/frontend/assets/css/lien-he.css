@@ -1,1 +1,32 @@
+.contact_wrapper {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 14px 28px rgb(0 0 0 / 25%), 0 10px 10px rgb(0 0 0 / 22%);
+}
 
+.contact-left {
+    background: linear-gradient(to right, #0b531d, #64b46a);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0 0;
+    color: #FFFFFF;
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 100px 40px;
+    text-align: center;
+}
+
+.sign-inout-wrapper form {
+    height: auto;
+    padding: 30px;
+}
+
+@media (max-width: 768px) {
+    .sign-inout-wrapper form {
+        padding-bottom: 30px;
+    }
+}

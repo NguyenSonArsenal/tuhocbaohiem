@@ -22,7 +22,16 @@ use Illuminate\Support\Facades\Route;
 //});
 
 Route::group(['as'=>'fe.'], function(){
-    Route::get('/', [\App\Http\Controllers\Frontend\HomeController::class, 'lienhe'])->name('lienhe');
+    Route::get('/dang-nhap', [\App\Http\Controllers\Frontend\AuthController::class, 'login'])->name('login');
+    Route::post('/dang-nhap', [\App\Http\Controllers\Frontend\AuthController::class, 'postLogin'])->name('login.post');
+    Route::get('/dang-ki', [\App\Http\Controllers\Frontend\AuthController::class, 'register'])->name('register');
+    Route::post('/dang-ki', [\App\Http\Controllers\Frontend\AuthController::class, 'postRegister'])->name('register.post');
+
+    Route::get('/', [\App\Http\Controllers\Frontend\HomeController::class, 'home'])->name('home');
+    Route::get('/lien-he', [\App\Http\Controllers\Frontend\HomeController::class, 'contact'])->name('contact');
+    Route::post('/lien-he', [\App\Http\Controllers\Frontend\HomeController::class, 'postContact'])->name('contact.post');
+    Route::get('/giao-vien', [\App\Http\Controllers\Frontend\HomeController::class, 'teacher'])->name('teacher');
+    Route::get('/giao-vien/{id}', [\App\Http\Controllers\Frontend\HomeController::class, 'showTeacher'])->name('teacher.show');
 });
 
 

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Backend\TeacherRequest;
+use App\Http\Requests\Backend\UserRequest;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Teacher;
@@ -27,7 +27,7 @@ class TeacherController extends Controller
         return view('backend.teacher.create');
     }
 
-    public function store(TeacherRequest $request)
+    public function store(UserRequest $request)
     {
         try {
             $params = request()->all();
@@ -64,7 +64,7 @@ class TeacherController extends Controller
         return view('backend.teacher.edit', compact('data'));
     }
 
-    public function update($id, TeacherRequest $request)
+    public function update($id, UserRequest $request)
     {
         try {
             $data = Teacher::findOrFail($id);
@@ -83,7 +83,7 @@ class TeacherController extends Controller
                 $thumbnail = $pathTmp . '/' . $fileName;
                 $params['avatar'] = $thumbnail;
             }
-            $data->fill($params);
+            $data->update($params);
             $data->save();
             return redirect()->route('be.teacher.index')->with('notification_success', trans('messages.success'));
         } catch (\Exception $e) {

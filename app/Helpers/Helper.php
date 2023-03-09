@@ -46,6 +46,11 @@ function beRoute($routeName, $params = [])
 {
     return route('be.' . $routeName, $params);
 }
+
+function feRoute($routeName, $params = [])
+{
+    return route('fe.' . $routeName, $params);
+}
 // End Auth
 
 /* Redirect */

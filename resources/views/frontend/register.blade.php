@@ -16,14 +16,14 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="contact-left">
-                            <h1>Chào mừng bạn đến với chúng tôi!</h1>
-                            <p>Để giữ kết nối với chúng tôi, vui lòng đăng nhập bằng thông tin cá nhân của bạn</p>
+                            <h1>Chào bạn!</h1>
+                            <p>Bạn đã có tài khoản. Đăng nhập tại đây để tham gia cùng chúng tôi.</p>
                             <a href="{{ feRoute('login') }}"><button class="ghost" id="signIn">Đăng nhập</button></a>
                         </div>
                     </div>
 
                     <div class="col-sm-6">
-                        <form method="POST" action="{{ feRoute('contact.post') }}">
+                        <form method="POST" action="{{ feRoute('register.post') }}">
                             @csrf
                             <div class="w-100">
                                 @include('layouts.frontend.structures._notification2')
@@ -43,24 +43,14 @@
                                 </div>
                             </div>
 
-                            <h1>Liên hệ</h1>
+                            <h1>Đăng kí</h1>
 
-                            <span>Gửi tin nhắn tới chúng tôi</span>
+                            <input type="text" name="name" placeholder="Nhập tên" class="form-control" value="{{ old('name') }}" required>
+                            <input type="email" name="email" placeholder="Nhập email" class="form-control" value="{{ old('email') }}" required>
+                            <input type="number" name="phone" placeholder="Nhập SĐT" class="form-control" value="{{ old('phone') }}" required>
+                            <input type="password" name="password" placeholder="Nhập mật khẩu" class="form-control" value="" required>
+                            <input type="password" name="password_confirmation" placeholder="Nhập lại mật khẩu" class="form-control" value="" required>
 
-                            <input placeholder="Họ Tên" id="name" type="text"
-                                   class="form-control"
-                                   name="name" value="" autocomplete="name" autofocus required>
-
-                            <input placeholder="SDT: 0912312312" id="phone_number" type="number"
-                                   class="phone-inputmask form-control"
-                                   name="phone" value=""
-                                   autocomplete="phone_number" autofocus required>
-
-                            <input placeholder="email@gmail.com" id="email" type="email"
-                                   class="form-control" name="email"
-                                   value=""  autocomplete="email" required>
-
-                            <input placeholder="Tin nhắn của bạn" id="message" name="message" type="text" value="" class="form-control" required>
                             <button type="submit" class="btn btn-primary">Gửi</button>
                         </form>
                     </div>
